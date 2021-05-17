@@ -3,5 +3,7 @@
   <%= form.hidden_field :content %>
 
   <p>Picture:<%= @picture.content %></p>
+  <%= form.submit "Back", name: 'back' %>
   <%= form.submit  "Submit" %>
+
 <% end %>

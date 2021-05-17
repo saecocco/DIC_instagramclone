@@ -22,7 +22,9 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
-
+    if params[:back]
+      render :new
+    else
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: "Picture was successfully created." }
@@ -31,6 +33,7 @@ class PicturesController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 
@@ -58,6 +61,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
+    render :new if @picture.invalid?
   end
 
   private
