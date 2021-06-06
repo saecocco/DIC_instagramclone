@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<p>
+  <strong>User:</strong>
+  <%= @picture.user.name %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image.url %>
+</p>
+<p>
   <strong>Content:</strong>
   <%= @picture.content %>
+</p>
 </p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
